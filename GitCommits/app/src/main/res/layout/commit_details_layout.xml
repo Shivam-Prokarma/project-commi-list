@@ -1,31 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="vertical"
-    android:paddingVertical="@dimen/commit_list_row_padding_vertical"
-    android:paddingStart="@dimen/commit_list_row_padding_horizontal">
+<layout>
 
-    <TextView
-        android:id="@+id/author_name"
-        android:layout_width="wrap_content"
+    <data>
+
+        <variable
+            name="commitData"
+            type="com.shivam.gitcommits.data.models.CommitData" />
+    </data>
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="@dimen/text_size_commit_author"
-        tools:text="Dummy Author" />
+        android:orientation="vertical"
+        android:paddingVertical="@dimen/commit_list_row_padding_vertical"
+        android:paddingStart="@dimen/commit_list_row_padding_horizontal">
 
-    <TextView
-        android:id="@+id/commit_hash"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="@dimen/text_size_commit_details"
-        tools:text="Commit:: ###########" />
+        <TextView
+            android:id="@+id/author_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{commitData::getAuthorName}"
+            android:textSize="@dimen/text_size_commit_author"
+            tools:text="Dummy Author" />
 
-    <TextView
-        android:id="@+id/commit_message"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="@dimen/text_size_commit_details"
-        tools:text="This is a dummy Commit message." />
+        <TextView
+            android:id="@+id/commit_hash"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{commitData::getCommitHash}"
+            android:textSize="@dimen/text_size_commit_details"
+            tools:text="Commit:: ###########" />
 
-</LinearLayout>
+        <TextView
+            android:id="@+id/commit_message"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{commitData::getCommitMessage}"
+            android:textSize="@dimen/text_size_commit_details"
+            tools:text="This is a dummy Commit message." />
+
+    </LinearLayout>
+</layout>
