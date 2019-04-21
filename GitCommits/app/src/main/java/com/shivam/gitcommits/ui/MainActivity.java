@@ -5,7 +5,6 @@ import android.support.v7.app.AppCompatActivity;
 
 import com.shivam.gitcommits.R;
 
-//https://api.github.com/repos/Shivam-Prokarma/project-commit-list/commits
 public class MainActivity extends AppCompatActivity {
 
     @Override
