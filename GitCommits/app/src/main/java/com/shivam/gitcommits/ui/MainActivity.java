@@ -1,13 +1,12 @@
 package com.shivam.gitcommits.ui;
 
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ProgressBar;
 
 import com.shivam.gitcommits.R;
 
-import androidx.lifecycle.Observer;
+import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -18,12 +17,12 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        progressBar = (ProgressBar) findViewById(R.id.loader);
+        progressBar = findViewById(R.id.progress_bar);
         setUpLiveData();
     }
 
     private void setUpLiveData() {
-        mainActivityViewModel.getLiveDataResults().observe(this, (Observer<MainActivityViewModel.ResultType>) (resultType) -> {
+        mainActivityViewModel.getLiveDataResults().observe(this, (resultType) -> {
             switch (resultType) {
                 case IN_PROGRESS:
                     progressBar.setVisibility(View.VISIBLE);

@@ -53,6 +53,6 @@ public class MainActivityViewModel extends ViewModel {
     enum ResultType {
         IN_PROGRESS,
         SUCCESS,
-        FAILURE;
+        FAILURE
     }
 }
