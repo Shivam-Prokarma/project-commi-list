@@ -3,4 +3,6 @@
     <dimen name="commit_list_row_padding_vertical">15dp</dimen>
     <dimen name="text_size_commit_author">20sp</dimen>
     <dimen name="text_size_commit_details">16sp</dimen>
+    <dimen name="progress_bar_margin_top">10dp</dimen>
+    <dimen name="progress_bar_height">20dp</dimen>
 </resources>

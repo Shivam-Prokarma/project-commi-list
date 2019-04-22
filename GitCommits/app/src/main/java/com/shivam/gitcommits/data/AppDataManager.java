@@ -9,6 +9,12 @@ import io.reactivex.Single;
 
 public class AppDataManager {
 
+    private static AppDataManager instance = new AppDataManager();
+
+    public static AppDataManager getInstance() {
+        return instance;
+    }
+
     public CommitDataService commitDataService;
 
     public Single<List<CommitData>> getCommitDataList() {
