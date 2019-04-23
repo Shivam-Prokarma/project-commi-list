@@ -1,20 +1,26 @@
 package com.shivam.gitcommits.ui.adapters;
 
-import android.databinding.DataBindingUtil;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 
 import com.shivam.gitcommits.R;
 import com.shivam.gitcommits.data.models.CommitData;
-import com.shivam.gitcommits.databinding.CommitDetailsLayoutBinding;
 
 import java.util.Collections;
 import java.util.List;
 
+import javax.inject.Inject;
+
 import androidx.annotation.NonNull;
+import androidx.databinding.DataBindingUtil;
+import androidx.databinding.ViewDataBinding;
+import androidx.databinding.library.baseAdapters.BR;
 import androidx.recyclerview.widget.RecyclerView;
 
 public final class CommitListAdapter extends RecyclerView.Adapter<CommitListAdapter.CommitListViewHolder> {
+
+    @Inject
+    public CommitListAdapter(){ }
 
     private List<CommitData> commitDataList = Collections.emptyList();
 
@@ -27,7 +33,7 @@ public final class CommitListAdapter extends RecyclerView.Adapter<CommitListAdap
     @NonNull
     @Override
     public CommitListViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        CommitDetailsLayoutBinding commitDetailsLayoutBinding = DataBindingUtil.inflate(LayoutInflater.from(parent.getContext()), R.layout.commit_details_layout, parent, false);
+        ViewDataBinding commitDetailsLayoutBinding = DataBindingUtil.inflate(LayoutInflater.from(parent.getContext()), R.layout.commit_details_layout, parent, false);
         return new CommitListViewHolder(commitDetailsLayoutBinding);
     }
 
@@ -43,15 +49,15 @@ public final class CommitListAdapter extends RecyclerView.Adapter<CommitListAdap
 
     static class CommitListViewHolder extends RecyclerView.ViewHolder {
 
-        private final CommitDetailsLayoutBinding commitDetailsLayoutBinding;
+        private final ViewDataBinding commitDetailsLayoutBinding;
 
-        public CommitListViewHolder(CommitDetailsLayoutBinding viewDataBinding) {
+        public CommitListViewHolder(ViewDataBinding viewDataBinding) {
             super(viewDataBinding.getRoot());
             this.commitDetailsLayoutBinding = viewDataBinding;
         }
 
         public void bindData(CommitData commitData) {
-            commitDetailsLayoutBinding.setCommitData(commitData);
+            commitDetailsLayoutBinding.setVariable(BR.commitData, commitData);
         }
     }
 }

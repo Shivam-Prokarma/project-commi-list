@@ -20,7 +20,7 @@
             android:id="@+id/author_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@{commitData::getAuthorName}"
+            android:text="@{commitData.authorName}"
             android:textSize="@dimen/text_size_commit_author"
             tools:text="Dummy Author" />
 
@@ -28,7 +28,7 @@
             android:id="@+id/commit_hash"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@{commitData::getCommitHash}"
+            android:text="@{commitData.commitHash}"
             android:textSize="@dimen/text_size_commit_details"
             tools:text="Commit:: ###########" />
 
@@ -36,7 +36,7 @@
             android:id="@+id/commit_message"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@{commitData::getCommitMessage}"
+            android:text="@{commitData.commitMessage}"
             android:textSize="@dimen/text_size_commit_details"
             tools:text="This is a dummy Commit message." />
 

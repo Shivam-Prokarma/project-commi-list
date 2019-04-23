@@ -40,6 +40,8 @@ dependencies {
     implementation "com.google.dagger:dagger:$versions.dagger_version"
     implementation "com.google.dagger:dagger-android-support:$versions.dagger_version"
     annotationProcessor "com.google.dagger:dagger-compiler:$versions.dagger_version"
+    implementation "com.google.dagger:dagger-android:$versions.dagger_version"
+    annotationProcessor "com.google.dagger:dagger-android-processor:$versions.dagger_version"
 
 
     implementation "androidx.appcompat:appcompat:$versions.material_version"
@@ -48,5 +50,3 @@ dependencies {
     testImplementation "junit:junit:$versions.junit_version"
     testImplementation "org.assertj:assertj-core:$versions.assert_version"
 }
-
-

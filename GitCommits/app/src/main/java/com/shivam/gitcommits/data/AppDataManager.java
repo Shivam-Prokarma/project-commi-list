@@ -5,17 +5,20 @@ import com.shivam.gitcommits.data.network.CommitDataService;
 
 import java.util.List;
 
+import javax.inject.Inject;
+import javax.inject.Singleton;
+
 import io.reactivex.Single;
 
+@Singleton
 public class AppDataManager {
 
-    private static AppDataManager instance = new AppDataManager();
+    private final CommitDataService commitDataService;
 
-    public static AppDataManager getInstance() {
-        return instance;
+    @Inject
+    public AppDataManager(CommitDataService commitDataService) {
+        this.commitDataService = commitDataService;
     }
-
-    public CommitDataService commitDataService;
 
     public Single<List<CommitData>> getCommitDataList() {
         return commitDataService.getCommitData();

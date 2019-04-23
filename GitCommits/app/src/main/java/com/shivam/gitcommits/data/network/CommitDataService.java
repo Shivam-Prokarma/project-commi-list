@@ -9,7 +9,7 @@ import retrofit2.http.GET;
 
 public interface CommitDataService {
 
-    @GET("https://api.github.com/repos/Shivam-Prokarma/project-commit-list/commits")
+    @GET("repos/Shivam-Prokarma/project-commit-list/commits")
     Single<List<CommitData>> getCommitData();
 
 }
