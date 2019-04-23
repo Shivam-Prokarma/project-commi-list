@@ -12,6 +12,7 @@ import javax.inject.Inject;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.lifecycle.ViewModelProviders;
+import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.RecyclerView;
 import dagger.android.AndroidInjection;
 
@@ -39,7 +40,9 @@ public class MainActivity extends AppCompatActivity {
     //@param savedInsatnceStated is to differentiate between whether Activity is recreated on orientation change
     // or created first time on launch.
     private void setUpRecyclerView(Bundle savedInstanceState) {
-        ((RecyclerView) findViewById(R.id.listCommits)).setAdapter(commitListAdapter);
+        final RecyclerView recyclerView = findViewById(R.id.listCommits);
+        recyclerView.addItemDecoration(new DividerItemDecoration(this, DividerItemDecoration.VERTICAL));
+        recyclerView.setAdapter(commitListAdapter);
         if (savedInstanceState != null && mainActivityViewModel.hasData()) {
             commitListAdapter.setData(mainActivityViewModel.getCommitDataList());
         } else {

@@ -11,7 +11,9 @@ public class CommitData {
     private CommitDetails commitDetails;
 
     public String getCommitHash() {
-        return commitHash;
+        StringBuilder stringBuilder = new StringBuilder();
+        stringBuilder.append("Commit: ").append(commitHash);
+        return stringBuilder.toString();
     }
 
     public String getCommitMessage() {
